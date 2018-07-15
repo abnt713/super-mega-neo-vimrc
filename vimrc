@@ -1,6 +1,7 @@
 syntax enable
 set number
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set colorcolumn=80
 
 set laststatus=2
 set noshowmode
@@ -24,3 +25,4 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
+let NERDTreeQuitOnOpen=1
