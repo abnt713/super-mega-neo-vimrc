@@ -1,3 +1,5 @@
+let $LOCAL_PLUGS = $HOME.'/.vim/plugs.local.vimrc'
+
 syntax enable
 
 set number
@@ -18,8 +20,12 @@ set completeopt-=preview
 cmap w!! w !sudo tee % >/dev/null
 
 call plug#begin()
+if filereadable($LOCAL_PLUGS)
+  source $LOCAL_PLUGS
+endif
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'stanangeloff/php.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'sickill/vim-monokai'
 Plug 'plasticboy/vim-markdown'
@@ -31,6 +37,8 @@ Plug 'shawncplus/phpcomplete.vim'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'arnaud-lb/vim-php-namespace'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'stephpy/vim-php-cs-fixer'
 call plug#end()
 
 let NERDTreeQuitOnOpen=1
@@ -42,7 +50,6 @@ let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
                                   \ '*var/cache*', '*var/log*']
 
 colorscheme monokai
-
 
 " Vim PHP Namespace - Functions
 
@@ -59,6 +66,7 @@ function! IPhpExpandClass()
     call PhpExpandClass()
     call feedkeys('a', 'n')
 endfunction
+
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
