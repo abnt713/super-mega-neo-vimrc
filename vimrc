@@ -1,9 +1,18 @@
 let $LOCAL_PLUGS = $HOME.'/.vim/plugs.local.vimrc'
+let $LOCAL_PRE = $HOME.'/.vim/pre.local.vimrc'
+let $LOCAL_POST = $HOME.'/.vim/post.local.vimrc'
 
 syntax enable
 
 set number
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+" set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+set expandtab
+set shiftwidth=4
+set smarttab
+set autoindent
+set smartindent
+
 set colorcolumn=80
 
 set laststatus=2
@@ -18,6 +27,10 @@ map <leader>c "+y
 set completeopt-=preview
 
 cmap w!! w !sudo tee % >/dev/null
+
+if filereadable($LOCAL_PRE)
+  source $LOCAL_PRE
+endif
 
 call plug#begin()
 if filereadable($LOCAL_PLUGS)
@@ -34,22 +47,29 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/colorizer'
 Plug 'shawncplus/phpcomplete.vim'
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'adoy/vim-php-refactoring-toolbox'
+Plug 'docteurklein/php-getter-setter.vim'
 call plug#end()
 
 let NERDTreeQuitOnOpen=1
 let g:gutentags_cache_dir = '~/.vim/gutentags'
+let g:gutentags_ctags_extra_args = ['--PHP-kinds=+cdfint-av']
 let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
                                   \ '*.phar', '*.ini', '*.rst', '*.md',
-                                  \ '*vendor/*/test*', '*vendor/*/Test*',
-                                  \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
                                   \ '*var/cache*', '*var/log*']
+                                  " \ '*vendor/*/test*', '*vendor/*/Test*',
+                                  " \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
+ 
 
 colorscheme monokai
+
+if filereadable($LOCAL_POST)
+  source $LOCAL_POST
+endif
 
 " Vim PHP Namespace - Functions
 
