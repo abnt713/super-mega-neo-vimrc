@@ -20,7 +20,6 @@ cmap w!! w !sudo tee % >/dev/null
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
-Plug 'stanangeloff/php.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'sickill/vim-monokai'
 Plug 'plasticboy/vim-markdown'
@@ -30,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/colorizer'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'shawncplus/phpcomplete.vim'
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 call plug#end()
 
 let NERDTreeQuitOnOpen=1
