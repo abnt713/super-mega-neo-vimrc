@@ -27,7 +27,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/colorizer'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 call plug#end()
