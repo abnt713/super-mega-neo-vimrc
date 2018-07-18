@@ -3,9 +3,7 @@ let $LOCAL_PRE = $HOME.'/.vim/pre.local.vimrc'
 let $LOCAL_POST = $HOME.'/.vim/post.local.vimrc'
 
 syntax enable
-
 set number
-" set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 set expandtab
 set shiftwidth=4
@@ -14,7 +12,6 @@ set autoindent
 set smartindent
 
 set colorcolumn=80
-
 set laststatus=2
 set noshowmode
 set shortmess+=I
@@ -24,7 +21,9 @@ nnoremap <leader>; :Files<CR>
 map <leader>v "+gP
 map <leader>c "+y
 
-set completeopt-=preview
+set completeopt=longest,menuone
+" set completeopt-=preview
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 cmap w!! w !sudo tee % >/dev/null
 
@@ -33,27 +32,48 @@ if filereadable($LOCAL_PRE)
 endif
 
 call plug#begin()
+
+" Allows local configuration of packages
 if filereadable($LOCAL_PLUGS)
   source $LOCAL_PLUGS
 endif
+
+" Visual improvements and tweaks
+Plug 'itchyny/lightline.vim'
+Plug 'sickill/vim-monokai'
+
+" General purpose and helpful (really helpful) stuff
+Plug 'chrisbra/colorizer'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ervandew/supertab'
+Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'mhinz/vim-signify'
+Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
-Plug 'stanangeloff/php.vim'
-Plug 'junegunn/fzf.vim'
-Plug 'sickill/vim-monokai'
-Plug 'plasticboy/vim-markdown'
-Plug 'itchyny/lightline.vim'
-Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
-Plug 'chrisbra/colorizer'
-Plug 'shawncplus/phpcomplete.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'stephpy/vim-php-cs-fixer'
+
+" PHP Stuff -> Really necessary
 Plug 'adoy/vim-php-refactoring-toolbox'
-Plug 'docteurklein/php-getter-setter.vim'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'stanangeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'tobys/pdv'
+Plug 'tobys/vmustache'
 call plug#end()
+
+" Configuration after loading the Plugins
+if filereadable($LOCAL_POST)
+  source $LOCAL_POST
+endif
+
+colorscheme monokai
+
+let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates"
+
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 let NERDTreeQuitOnOpen=1
 let g:gutentags_cache_dir = '~/.vim/gutentags'
@@ -63,13 +83,6 @@ let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
                                   \ '*var/cache*', '*var/log*']
                                   " \ '*vendor/*/test*', '*vendor/*/Test*',
                                   " \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
- 
-
-colorscheme monokai
-
-if filereadable($LOCAL_POST)
-  source $LOCAL_POST
-endif
 
 " Vim PHP Namespace - Functions
 
@@ -92,4 +105,3 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 " auto sort after insert use statements
 let g:php_namespace_sort_after_insert = 1
-
