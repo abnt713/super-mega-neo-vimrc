@@ -1,5 +1,6 @@
 set anti enc=utf-8
-set guifont=Source\ Code\ Pro\ 10
+" set guifont=Source\ Code\ Pro\ 14
+set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 
 set lines=999 columns=9999
 

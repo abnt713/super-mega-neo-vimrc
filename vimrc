@@ -53,8 +53,12 @@ Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'mattn/emmet-vim'
+Plug 'vim-scripts/auto-pairs-gentle'
+Plug 'scrooloose/syntastic'
 
 " PHP Stuff -> Really necessary
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
@@ -75,14 +79,30 @@ let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates"
 
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
-let NERDTreeQuitOnOpen=1
+let g:AutoPairsUseInsertedCount = 1
+
+" let NERDTreeQuitOnOpen=1
+
+" let g:gutentags_project_info = []
+" call add(g:gutentags_project_info, {'type': 'composer', 'file': 'composer.json'})
+" let g:gutentags_ctags_executable_composer = 'phpctags'
 let g:gutentags_cache_dir = '~/.vim/gutentags'
-let g:gutentags_ctags_extra_args = ['--PHP-kinds=+cdfint-av']
+let g:gutentags_ctags_extra_args = ['--PHP-kinds=+cdfintv-a']
 let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
                                   \ '*.phar', '*.ini', '*.rst', '*.md',
                                   \ '*var/cache*', '*var/log*']
                                   " \ '*vendor/*/test*', '*vendor/*/Test*',
                                   " \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Vim PHP Namespace - Functions
 
@@ -105,3 +125,28 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 " auto sort after insert use statements
 let g:php_namespace_sort_after_insert = 1
+
+" PHP Actor
+" Invoke the context menu
+nmap <Leader>mm :call phpactor#ContextMenu()<CR>
+
+" Invoke the navigation menu
+nmap <Leader>nn :call phpactor#Navigate()<CR>
+
+" Goto definition of class or class member under the cursor
+nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+
+" Transform the classes in the current file
+nmap <Leader>tt :call phpactor#Transform()<CR>
+
+" Generate a new class (replacing the current file)
+nmap <Leader>cc :call phpactor#ClassNew()<CR>
+
+" Extract expression (normal mode)
+nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
+
+" Extract expression from selection
+vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+
+" Extract method from selection
+" vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
