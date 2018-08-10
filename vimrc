@@ -3,8 +3,6 @@ let $LOCAL_PLUGS = $HOME.'/.vim/plugs.local.vimrc'
 let $LOCAL_PRE = $HOME.'/.vim/pre.local.vimrc'
 let $LOCAL_POST = $HOME.'/.vim/post.local.vimrc'
 
-set noesckeys
-
 " Syntax colors and line numbers
 syntax enable
 set number
@@ -52,7 +50,7 @@ endif
 
 " Visual improvements and tweaks
 Plug 'itchyny/lightline.vim'
-Plug 'sickill/vim-monokai'
+Plug 'morhetz/gruvbox'
 
 " General purpose and helpful (really helpful) stuff
 Plug 'chrisbra/colorizer'
@@ -77,16 +75,26 @@ Plug 'stephpy/vim-php-cs-fixer'
 " Blade templates are important
 Plug 'jwalton512/vim-blade'
 
+" I want dark powers
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 call plug#end()
 
-
+let g:deoplete#enable_at_startup = 1
 
 " Configuration after loading the Plugins
 if filereadable($LOCAL_POST)
   source $LOCAL_POST
 endif
 
-colorscheme monokai
+colorscheme gruvbox
+set background=dark
 
 " Shortcut for our NERDTree
 nnoremap <leader>t :NERDTreeToggle <CR>
