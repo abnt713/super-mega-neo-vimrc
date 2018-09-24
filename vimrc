@@ -6,6 +6,7 @@ let $LOCAL_POST = $HOME.'/.vim/post.local.vimrc'
 " Syntax colors and line numbers
 syntax enable
 set number
+set showmatch
 
 " Indentation! Really important stuff
 set expandtab
@@ -87,11 +88,15 @@ Plug 'jwalton512/vim-blade'
 " I want dark powers
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zchee/deoplete-jedi'
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
+" What about Python?
+Plug 'fisadev/vim-isort'
 
 call plug#end()
 
@@ -164,3 +169,7 @@ autocmd FileType php setlocal omnifunc=phpactor#Complete
 
 " PHP CS Fixer while saving PHP files
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+
+let python_highlight_all = 1
+
+let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
