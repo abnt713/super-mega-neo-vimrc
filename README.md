@@ -9,7 +9,7 @@ A collection of vimrc files for pure joy and happiness
 * Kindness of heart
 
 ## Getting started
-There are two main files that needs attention here: **vimrc** and **gvimrc**. Symlink those to your home or vimrc path
+All you need to do is copy the `init.vim.sample` to your vimrc path. Then, customize the options in the new file
 
 ## Evolution
 This repository will evolve with time. The ideia is building a great and modular editor
