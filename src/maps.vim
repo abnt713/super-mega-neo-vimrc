@@ -5,6 +5,9 @@ map <leader>c "+y
 " Save as root
 cmap w!! w !sudo tee % >/dev/null
 
+" <CR> for Omnicomplete selection
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " FZF
 map <leader>f :Files <CR>
 map <leader>; :Buffers<CR>
