@@ -1,5 +1,3 @@
-call plug#begin()
-
 " Visual improvements and tweaks
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
@@ -29,6 +27,7 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'stanangeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'vim-scripts/phtml.vim'
 
 " Blade templates are important
 Plug 'jwalton512/vim-blade'
@@ -46,4 +45,3 @@ endif
 " What about Python?
 Plug 'fisadev/vim-isort'
 
-call plug#end()
