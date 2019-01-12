@@ -19,7 +19,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/matchit.zip'
 Plug 'reedes/vim-pencil'
 
-exec "Plug '" g:fzf_path."'"
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " PHP Stuff -> Really necessary
