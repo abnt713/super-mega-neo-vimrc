@@ -18,3 +18,10 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 let python_highlight_all = 1
 let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
 let g:vim_markdown_folding_disabled = 1
+
+let g:gutentags_cache_dir = '~/.config/nvim/gutentags'
+let g:gutentags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
+                            \ '*.phar', '*.ini', '*.rst', '*.md',
+                            \ '*vendor/*/test*', '*vendor/*/Test*',
+                            \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
+                            \ '*var/cache*', '*var/log*']

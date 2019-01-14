@@ -8,5 +8,3 @@ set colorcolumn=80
 set laststatus=2
 set completeopt=longest,menuone
 
-colorscheme gruvbox
-set background=dark

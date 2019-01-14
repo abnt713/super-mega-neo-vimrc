@@ -29,6 +29,9 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'vim-scripts/phtml.vim'
 
+" TAGS
+Plug 'ludovicchabant/vim-gutentags'
+
 " Blade templates are important
 Plug 'jwalton512/vim-blade'
 
