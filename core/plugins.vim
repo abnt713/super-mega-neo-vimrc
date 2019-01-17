@@ -18,6 +18,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/matchit.zip'
 Plug 'reedes/vim-pencil'
+Plug 'gilsondev/searchtasks.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -39,6 +40,7 @@ Plug 'jwalton512/vim-blade'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
+  Plug 'kristijanhusak/deoplete-phpactor'
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
