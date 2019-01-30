@@ -2,6 +2,12 @@
 map <leader>v "+gP
 map <leader>c "+y
 
+" Inspector
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+
 " Save as root
 cmap w!! w !sudo tee % >/dev/null
 
