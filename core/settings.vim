@@ -5,14 +5,26 @@ let g:deoplete#enable_at_startup = 1
 
 let g:AutoPairsUseInsertedCount = 1
 
+"""""""""""""""
+" Status Line "
+"""""""""""""""
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+"""""""
+" ALE "
+"""""""
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {'python': ['flake8']} 
 let g:ale_fixers = {'python': ['isort', 'autopep8']} 
 let g:ale_fix_on_save = 1
+
+""""""""""""""
+" Git Gutter "
+""""""""""""""
+let g:gitgutter_override_sign_column_highlight = 0
+autocmd BufWritePost * GitGutter
 
 autocmd FileType php setlocal omnifunc=phpactor#Complete
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()

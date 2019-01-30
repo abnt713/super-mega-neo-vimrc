@@ -1,12 +1,13 @@
 " Visual improvements and tweaks
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+Plug 'ryanoasis/vim-devicons'
 
 " General purpose and helpful (really helpful) stuff
 Plug 'chrisbra/colorizer'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
-Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
