@@ -48,6 +48,9 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" Tmux
+Plug 'christoomey/vim-tmux-navigator'
+
 " What about Python?
 Plug 'fisadev/vim-isort'
 
