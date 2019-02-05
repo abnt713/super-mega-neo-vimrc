@@ -1,4 +1,5 @@
 syntax enable
+colorscheme 1989
 
 set number showmatch
 set expandtab smarttab autoindent smartindent
