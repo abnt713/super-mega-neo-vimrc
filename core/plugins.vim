@@ -2,7 +2,6 @@
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
-Plug 'flazz/vim-colorschemes'
 
 " General purpose and helpful (really helpful) stuff
 Plug 'chrisbra/colorizer'
