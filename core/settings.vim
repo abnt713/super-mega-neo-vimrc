@@ -1,8 +1,16 @@
-let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates"
-" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+""""""""""""
+" SuperTab "
+""""""""""""
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+""""""""""""
+" Deoplete "
+""""""""""""
 let g:deoplete#enable_at_startup = 1
 
+""""""""""""""
+" Auto Pairs "
+""""""""""""""
 let g:AutoPairsUseInsertedCount = 1
 
 """""""""""""""
