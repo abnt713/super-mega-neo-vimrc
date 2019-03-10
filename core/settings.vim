@@ -6,6 +6,9 @@ let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates"
 " let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+""""""""""""""
+" Auto Pairs "
+""""""""""""""
 let g:AutoPairsUseInsertedCount = 1
 
 """""""""""""""
