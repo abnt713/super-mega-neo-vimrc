@@ -1,7 +1,10 @@
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect 
+inoremap <c-c> <ESC>
+
 let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates"
 " let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:deoplete#enable_at_startup = 1
 
 let g:AutoPairsUseInsertedCount = 1
 

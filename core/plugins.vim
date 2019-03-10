@@ -25,7 +25,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " PHP Stuff -> Really necessary
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
 Plug 'stanangeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
@@ -37,16 +37,16 @@ Plug 'ludovicchabant/vim-gutentags'
 " Blade templates are important
 Plug 'jwalton512/vim-blade'
 
-" I want dark powers
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'zchee/deoplete-jedi'
-  Plug 'kristijanhusak/deoplete-phpactor'
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" NCM2
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+" Completion engines
+Plug 'ncm2/ncm2-path' 
+Plug 'ncm2/ncm2-bufword' 
+Plug 'phpactor/ncm2-phpactor'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'ncm2/nvim-typescript', {'do': './install.sh'}
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
