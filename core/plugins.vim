@@ -28,6 +28,9 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'vim-scripts/phtml.vim'
 
+" ALE
+Plug 'w0rp/ale'
+
 " NCM2
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
@@ -43,7 +46,10 @@ Plug 'phpactor/ncm2-phpactor'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'ncm2/nvim-typescript', {'do': './install.sh'}
 " GoLang
+" Don't forget to install a fast version of gocode
+" github.com/visualfc/gocode
 Plug 'ncm2/ncm2-go'
+Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Tmux
