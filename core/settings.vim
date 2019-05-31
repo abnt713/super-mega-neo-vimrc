@@ -1,6 +1,6 @@
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect 
-inoremap <c-c> <ESC>
+" inoremap <c-c> <ESC>
 
 let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates"
 " let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
@@ -17,6 +17,9 @@ let g:AutoPairsUseInsertedCount = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 
 """""""
 " ALE "

@@ -2,6 +2,7 @@
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tomasiser/vim-code-dark'
 
 " General purpose and helpful (really helpful) stuff
 Plug 'editorconfig/editorconfig-vim'
