@@ -38,6 +38,8 @@ autocmd BufWritePost * GitGutter
 autocmd FileType php setlocal omnifunc=phpactor#Complete
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
+let g:php_cs_fixer_rules = "@PSR2,no_unused_imports" " options: --fixers
+
 let python_highlight_all = 1
 let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
 let g:vim_markdown_folding_disabled = 1
